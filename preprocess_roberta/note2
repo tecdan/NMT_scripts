@@ -1,0 +1,16 @@
+
+
+中文预训练的数据也是基于character，
+但是中文的roberta用了全词mask的trick, 这并没有改变，它是character based的tokenization, 只是mask的时候有所影响
+
+
+https://github.com/brightmart/roberta_zh/blob/master/tokenization.py
+
+中文全词遮蔽 Whole Word Mask
+说明    样例
+原始文本    使用语言模型来预测下一个词的probability。
+分词文本    使用 语言 模型 来 预测 下 一个 词 的 probability 。
+原始Mask输入    使 用 语 言 [MASK] 型 来 [MASK] 测 下 一 个 词 的 pro [MASK] ##lity 。
+全词Mask输入    使 用 语 言 [MASK] [MASK] 来 [MASK] [MASK] 下 一 个 词 的 [MASK] [MASK] [MASK] 。
+
+他们先用结吧分词，然后记住哪些character是在一个词里的，后面做mask的时候，如果某一个character被mask了，那么整个词里的所有character都会被mask，但是仍然是character-based的中文分词，而不是把结吧分词的结果用来预训练。

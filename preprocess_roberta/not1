@@ -1,0 +1,10 @@
+vimdiff -O ted.train.zh.roberta.tok ../../preprocess_bert/ted/ted.train.zh.bert.tok
+vimdiff -O ted.valid.zh.roberta.tok ../../preprocess_bert/ted/ted.valid.zh.bert.tok
+
+
+vimdiff -O ted.tst2015.zh.roberta.tok ../../preprocess_bert/ted/ted.tst2015.zh.bert.tok
+
+以上命令可以看出来我们的bert和roberta的中文的data的tokenization的结果是一样的
+
+因为我们中文roberta来源的github的博主 用的是bert里的分词方式,中文character用空格分开，英文采用WordPiece的形式
+
