@@ -1,2 +1,2 @@
 # NMT_scripts
-scripts related stm wav data cleaning, etc.
+scripts related to stm files,data cleaning, etc.
